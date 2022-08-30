@@ -1,1 +1,1 @@
-(()=>{"use strict";let l="Hello World!";console.log(l),l="hi",console.log(l)})();
+(()=>{"use strict";let o="Hello World!";console.log(o),o="hi",console.log(o),document.querySelector(".add-task")})();
