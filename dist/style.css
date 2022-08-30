@@ -39,8 +39,7 @@ body{
     grid-column: 2/3;
     grid-row: 2/3;
     display: grid;
-    justify-content: flex-start;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
     gap: 15px;
     padding: 20px;
     background-color: #F6F6F6;
