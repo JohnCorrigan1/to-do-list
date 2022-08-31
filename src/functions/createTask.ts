@@ -1,6 +1,8 @@
-class doThis{
+export default class doThis{
+
     constructor(name: string, date: string){
-    name = name
-    date = date
+        name = name
+        date = date
+    }
 }
-}
+
