@@ -1,9 +1,6 @@
 import _ from 'lodash';
 import getTask from './functions/getTask'
-import doThis from './functions/createTask'
-
-
-let tasks: object[] = [];
+import createProject from './functions/newProject';
 
 let helloWorld: string = "Hello World!";
 console.log(helloWorld)
@@ -22,18 +19,22 @@ addTask.addEventListener('click', function(){
 })
 
 
-const addIt = <HTMLButtonElement> document.querySelector('.add-it')!;
-const taskName = <HTMLInputElement> document.querySelector('.input-name');
-const dueDate = <HTMLInputElement> document.querySelector('.due-date');
+const newProjectButton =  <HTMLButtonElement> document.querySelector('.add-project')!
 
-// if(addIt && taskName && dueDate){
-// addIt.addEventListener('click', function(){
-//     // e.preventDefault();
-//     console.log("testing 2")
-//     // const task = new doThis(taskName.value, dueDate.value)
-//     // tasks.push(task)
-//     console.log(tasks)
-// })
-// }
+newProjectButton.addEventListener('click', function(){
+   console.log("testing 2")
+    createProject();
+
+    // const projectNameInput = document.createElement('input')!
+    // projectNameInput.classList.add('project-name-input')
+
+    // const projectNameLabel = document.createElement('label')!
+    // projectNameLabel.classList.add('label')
+    // projectNameLabel.textContent = "Project Name:"
+
+    // const addProject = document.querySelector('.add3')!
+    // addProject.appendChild(projectNameLabel)
+    // addProject.appendChild(projectNameInput)
 
 
+})

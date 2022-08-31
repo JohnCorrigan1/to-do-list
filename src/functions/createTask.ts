@@ -1,5 +1,3 @@
-import allTasks from './getTask'
-
 export default class doThis{
 
     name: string;
@@ -13,9 +11,11 @@ export default class doThis{
 
 
 function appendTask(allTasks: doThis[]){
+    const toDos = document.querySelector('.tasks')!
+    toDos.innerHTML = ''
     allTasks.forEach(element => {
-        const toDos = document.querySelector('.todos')!
-
+        
+        
         const taskDiv = document.createElement('div')
         taskDiv.classList.add('item')
         
@@ -36,11 +36,6 @@ function appendTask(allTasks: doThis[]){
         taskDiv.appendChild(itemTitle)
         taskDiv.appendChild(itemDate)
         toDos.appendChild(taskDiv)
-
-
-
-
-
 
     });
 }

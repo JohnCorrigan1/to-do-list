@@ -1,5 +1,4 @@
 import doThis, { appendTask } from './createTask'
-// import { appendTask } from './createTask'
 
 export default function getTask(){
     const add = document.querySelector('.add')!
