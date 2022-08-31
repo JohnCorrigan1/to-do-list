@@ -1,3 +1,5 @@
+import doThis from './createTask'
+
 export default function getTask(){
     const add = document.querySelector('.add')!
     const add2 = document.querySelector('.add2')!
@@ -8,7 +10,7 @@ export default function getTask(){
     const taskDate = document.createElement('div')
     taskDate.classList.add('task-date')
 
-    const addIt = document.createElement('button')
+    const addIt = <HTMLButtonElement> document.createElement('button')
     addIt.type = 'submit'
     addIt.classList.add('add-it')
     addIt.textContent = "Add it"
@@ -22,11 +24,12 @@ export default function getTask(){
     nameLabel.classList.add('name-label')
     nameLabel.textContent = "Task Name"
 
-    const inputName = document.createElement('input')
+    const inputName = <HTMLInputElement> document.createElement('input')
     inputName.classList.add('input-name')
 
-    const date = document.createElement('input')
+    const date = <HTMLInputElement> document.createElement('input')
     date.type = 'date'
+    date.classList.add('due-date')
 
 
     const dateLabel = document.createElement('label')
@@ -43,4 +46,11 @@ export default function getTask(){
     add.appendChild(taskDate)
     add2.appendChild(addIt)
     add2.appendChild(cancelIt)
+
+
+    addIt.addEventListener('click', function(){
+        console.log("Testing 2")
+        // const task = new doThis(inputName.value, date.value)
+        console.log(inputName.value, date.value)
+    })
 }

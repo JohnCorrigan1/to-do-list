@@ -6,3 +6,11 @@ export default class doThis{
     }
 }
 
+// , date: string
+
+// interface DoThis {
+//     name: string;
+//     date: string;
+// }
+
+

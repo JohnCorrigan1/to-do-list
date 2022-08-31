@@ -22,18 +22,18 @@ addTask.addEventListener('click', function(){
 })
 
 
-const addIt = <HTMLButtonElement> document.querySelector('.add-it');
+const addIt = <HTMLButtonElement> document.querySelector('.add-it')!;
 const taskName = <HTMLInputElement> document.querySelector('.input-name');
 const dueDate = <HTMLInputElement> document.querySelector('.due-date');
 
 // if(addIt && taskName && dueDate){
-addIt.addEventListener('click', function(e){
-    e.preventDefault();
-    console.log("testing 2")
-    const task = new doThis(taskName.value, dueDate.value)
-    // tasks.push(task)
-    console.log(tasks)
-})
+// addIt.addEventListener('click', function(){
+//     // e.preventDefault();
+//     console.log("testing 2")
+//     // const task = new doThis(taskName.value, dueDate.value)
+//     // tasks.push(task)
+//     console.log(tasks)
+// })
 // }
 
 
