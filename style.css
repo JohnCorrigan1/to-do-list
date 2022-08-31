@@ -29,11 +29,9 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 15vw;
-    min-width: fit-content;
     padding: 10px;
     background-color: #D9CAB3;
-    height: 100%;
+    min-height: 100%;
 }
 
 .todos{
@@ -41,14 +39,26 @@ body{
     flex-direction: column;
     grid-column: 2/3;
     grid-row: 2/3;
+    height: 100%;
     padding: 20px;
     background-color: #F6F6F6;
     gap: 10px;
 }
 
+.add{
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+}
+
+input{
+    display: flex;
+}
+
 .add-task{
     margin-right: auto;
     margin-left: auto;
+    max-width: 150px;
     background-color: darkgray;
     padding: 10px;
     font-size: large;
@@ -56,8 +66,13 @@ body{
     color:#F6F6F6;
 }
 
+.name-task{
+    margin-right: 5vw;
+}
+
 .add-task:hover{
     background-color: lightgray;
+    cursor: pointer;
 }
 
 .item{
