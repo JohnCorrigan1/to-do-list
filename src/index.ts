@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import getTask from './functions/getTask'
 
 // import './style.css';
 
@@ -10,9 +11,12 @@ helloWorld = "hi";
 
 console.log(helloWorld);
 
-const newTask = document.getElementById('add-task');
+const addTask = <HTMLButtonElement> document.getElementById('add-task')!;
 
-newTask.addEventListener('click', function(){
+
+addTask.addEventListener('click', function(e){
     console.log("testing")
+    getTask();
+    addTask.disabled = true;
 })
 
