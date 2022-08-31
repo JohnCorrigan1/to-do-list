@@ -12,7 +12,7 @@ body{
 .content{
     display: grid;
     grid-template-rows: 1fr 9fr;
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 200px 1fr;
     height: 100vh;
     width: 100%;
 }
@@ -45,6 +45,11 @@ body{
     gap: 10px;
 }
 
+.tasks{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .add{
     margin-right: auto;
     margin-left: auto;
@@ -55,6 +60,16 @@ body{
     margin-right: auto;
     margin-left: auto;
 }
+
+.add3 {
+    margin-right: auto;
+   margin-top: 10px;
+}
+
+.add4{
+ margin-top: 10px;   
+}
+
 input{
     display: flex;
 }
