@@ -24,17 +24,5 @@ const newProjectButton =  <HTMLButtonElement> document.querySelector('.add-proje
 newProjectButton.addEventListener('click', function(){
    console.log("testing 2")
     createProject();
-
-    // const projectNameInput = document.createElement('input')!
-    // projectNameInput.classList.add('project-name-input')
-
-    // const projectNameLabel = document.createElement('label')!
-    // projectNameLabel.classList.add('label')
-    // projectNameLabel.textContent = "Project Name:"
-
-    // const addProject = document.querySelector('.add3')!
-    // addProject.appendChild(projectNameLabel)
-    // addProject.appendChild(projectNameInput)
-
-
+    newProjectButton.disabled = true;
 })

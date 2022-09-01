@@ -3,6 +3,7 @@ import doThis, { appendTask } from './createTask'
 export default function getTask(){
     const add = document.querySelector('.add')!
     const add2 = document.querySelector('.add2')!
+    const newTask = <HTMLButtonElement> document.querySelector('.add-task')!
     
     const nameTask = document.createElement('div')
     nameTask.classList.add('name-task')
@@ -57,5 +58,14 @@ export default function getTask(){
         allTasks.push(task)
         console.log(allTasks)
         appendTask(allTasks);
+        add.innerHTML = ''
+        add2.innerHTML = ''
+        newTask.disabled = false
+    })
+
+    cancelIt.addEventListener('click', function(){
+        add.innerHTML = ''
+        add2.innerHTML = ''
+        newTask.disabled = false
     })
 }
