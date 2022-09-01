@@ -30,7 +30,7 @@ function appendTask(allTasks: doThis[]){
 
         const itemDate = document.createElement('p')
         itemDate.classList.add('date')
-        itemDate.textContent = element.date
+        itemDate.textContent = "Due Date: " + element.date
 
         taskDiv.appendChild(done)
         taskDiv.appendChild(itemTitle)

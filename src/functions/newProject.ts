@@ -1,5 +1,3 @@
-import { add } from "lodash"
-
 export default function createProject(){
         const projectHeader = document.querySelector('.project-header')!
         const newProjectButton = <HTMLButtonElement> document.querySelector('.add-project')
