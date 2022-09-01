@@ -1,6 +1,5 @@
 html{
     height:100%;
-    
 }
 
 body{
@@ -13,16 +12,17 @@ body{
 .content{
     display: grid;
     grid-template-rows: 1fr 10fr;
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: 8em 6fr;
     height: 100%;
     width: 100%;
 }
 
 .header{
+    display: flex;
+    align-items: center;
     color: white;
     background-color: #212121;
     grid-column: 2/3;
-    /* grid-row: 1/2; */
     width: 100%;
 }
 
@@ -30,7 +30,35 @@ body{
     margin-left: 25px;
 }
 
+.hamburger{
+    margin-left: auto;
+    margin-right: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+}
+
+.hamburger-nav{
+    display: none;
+}
+
+.active{
+    display:flex;
+    justify-content: center;
+    background-color: #D9CAB3;
+}
+
 .sidebar{
+    position: fixed;
+    width: 8em;
     grid-row: 2/3;
     grid-column: 1/2;
     display: flex;
@@ -39,8 +67,6 @@ body{
     padding: 10px;
     background-color: #D9CAB3;
     height: 100%;
-    position: fixed;
-   
 }
 
 .project-name-input{
@@ -98,11 +124,11 @@ body{
 
 .add3 {
     margin-right: auto;
-   margin-top: 10px;
+    margin-top: 10px;
 }
 
 .add4{
- margin-top: 10px;   
+    margin-top: 10px;   
 }
 
 input{
@@ -152,8 +178,9 @@ input{
 }
 
 @media (max-width: 600px){
-    .item{
-        flex-direction: column;
+
+    .hamburger{
+        display: block;
     }
 
     .date{
@@ -169,18 +196,19 @@ input{
     }
 
     .header{
-        grid-template-columns: 1/3;
+        grid-column: 1/3;
     }
 
     .todos{
         width: 100vw;
+        grid-column: 1/3;
     }
 }
 
 
-@media (max-width: 500px){
+@media (max-width: 450px){
 
-    .add{
+    .item{
         flex-direction: column;
     }
 
