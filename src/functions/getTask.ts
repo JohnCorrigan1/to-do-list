@@ -1,4 +1,4 @@
-import doThis, { appendTask } from './createTask'
+import doThis, { appendTask, allTasks } from './createTask'
 
 export default function getTask(){
     const add = document.querySelector('.add')!
@@ -48,11 +48,11 @@ export default function getTask(){
     add2.appendChild(addIt)
     add2.appendChild(cancelIt)
 
-    let allTasks: doThis[] = []
+    
+
     addIt.addEventListener('click', function(){
         console.log("Testing 2")
         const task = new doThis(inputName.value, date.value)
-        console.log(task)
         inputName.value = ''
         date.value = ''
         allTasks.push(task)

@@ -1,3 +1,5 @@
+import { allTasks } from "..";
+
 export default class doThis{
 
     name: string;
@@ -8,6 +10,7 @@ export default class doThis{
         this.date = date;
     }
 }
+
 
 
 function appendTask(allTasks: doThis[]){
@@ -40,7 +43,7 @@ function appendTask(allTasks: doThis[]){
     });
 }
 
-export { appendTask }
+export { appendTask, allTasks }
 
 
 

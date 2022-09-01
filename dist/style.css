@@ -65,7 +65,7 @@ body{
     flex-direction: column;
     align-items: flex-start;
     padding: 10px;
-    background-color: #D9CAB3;
+    background-color: darkgray;
     height: 100%;
 }
 
@@ -76,7 +76,7 @@ body{
 .add-project{
     margin-right: auto;
     margin-left: auto;
-    background-color: darkgray;
+    background-color: #6D9886;
     padding: 10px;
     font-size: medium;
     border-radius: 10px;
@@ -99,7 +99,6 @@ body{
     grid-column: 2/3;
     grid-row: 2/3;
     height: 100%;
-   
     background-color: #F6F6F6;
     gap: 10px;
 }
@@ -111,6 +110,7 @@ body{
     padding: 20px;
     margin-left: 20px;
 }
+
 .add{
     margin-right: auto;
     margin-left: auto;
@@ -176,8 +176,53 @@ input{
     margin-left: auto;
     margin-right: 10px;
 }
+@media (min-width: 601px){
+    
+    .active{
+        display: none;
+    }
+}
 
 @media (max-width: 600px){
+
+    .content{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar{
+        display: none;
+    }
+    
+    .projects-container{
+        display: flex;
+        align-items: center;
+        
+    }
+
+    .project-header{
+        margin-left: 10px;
+        margin-right:auto;
+    }
+
+    .new-project{
+        display: flex;
+        flex-direction: column;
+        margin: auto 10px auto auto;
+        
+    }
+
+    .sidebar-active{
+        
+        height: auto;
+        width: auto;
+        background-color: darkgray;
+
+    }
+    .todos{
+        grid-column: 1/2;
+        grid-row: 3/4;
+    }
 
     .hamburger{
         display: block;
@@ -189,10 +234,6 @@ input{
 
     .item-title{
         margin:0;
-    }
-
-    .sidebar{
-        display: none;
     }
 
     .header{

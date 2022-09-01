@@ -1,7 +1,9 @@
 import _ from 'lodash';
 import getTask from './functions/getTask'
 import createProject from './functions/newProject';
+import doThis from './functions/createTask';
 
+const allTasks: doThis[] = []
 let helloWorld: string = "Hello World!";
 console.log(helloWorld)
 
@@ -12,7 +14,9 @@ console.log(helloWorld);
 const addTask = <HTMLButtonElement> document.getElementById('add-task')!;
 const newProjectButton =  <HTMLButtonElement> document.querySelector('.add-project')!
 const hamburger = document.querySelector('.hamburger')!
-const hamburgerNav = <HTMLDivElement> document.querySelector('.hamburger-nav')!
+const sidebar = <HTMLDivElement> document.querySelector('.sidebar')!
+let windowSize = window.matchMedia("(min-width: 601px)")
+
 
 addTask.addEventListener('click', function(){
     console.log("testing")
@@ -21,26 +25,31 @@ addTask.addEventListener('click', function(){
 })
 
 newProjectButton.addEventListener('click', function(){
-   console.log("testing 2")
+    console.log("testing 2")
     createProject();
     newProjectButton.disabled = true;
 })
 
 let isActive: boolean = false
+
 hamburger.addEventListener('click', function(){
     if(!isActive){
-        hamburgerNav.classList.remove("hamburger-nav")
-        hamburgerNav.classList.add("active")
+        sidebar.classList.remove("sidebar")
+        sidebar.classList.add("sidebar-active")
         isActive = true
     }
     else{
-        hamburgerNav.classList.remove("active")
-        hamburgerNav.classList.add("hamburger-nav")
+        sidebar.classList.remove("sidebar-active")
+        sidebar.classList.add("sidebar")
         isActive = false
     }
-    // }
-    // else if(hamburgerNav.style.display = "flex"){
-    //     hamburgerNav.classList.remove("active")
-    //     hamburgerNav.classList.add("hamburger-nav")
-    // }
 })
+
+addEventListener('resize', function(){
+    if(windowSize.matches){
+        sidebar.classList.add('sidebar')
+        isActive = false
+    }
+});
+
+export { allTasks }
