@@ -12,8 +12,8 @@ body{
 
 .content{
     display: grid;
-    grid-template-rows: 80px 10fr;
-    grid-template-columns: 150px 1fr;
+    grid-template-rows: 1fr 10fr;
+    grid-template-columns: 1fr 6fr;
     height: 100%;
     width: 100%;
 }
@@ -22,7 +22,7 @@ body{
     color: white;
     background-color: #212121;
     grid-column: 2/3;
-    grid-row: 1/2;
+    /* grid-row: 1/2; */
     width: 100%;
 }
 
@@ -38,7 +38,6 @@ body{
     align-items: flex-start;
     padding: 10px;
     background-color: #D9CAB3;
-    width: 150px;
     height: 100%;
     position: fixed;
    
@@ -74,8 +73,7 @@ body{
     grid-column: 2/3;
     grid-row: 2/3;
     height: 100%;
-    margin-left: 20px;
-    /* padding: 20px; */
+   
     background-color: #F6F6F6;
     gap: 10px;
 }
@@ -164,6 +162,18 @@ input{
 
     .item-title{
         margin:0;
+    }
+
+    .sidebar{
+        display: none;
+    }
+
+    .header{
+        grid-template-columns: 1/3;
+    }
+
+    .todos{
+        width: 100vw;
     }
 }
 
