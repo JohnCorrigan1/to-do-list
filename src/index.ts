@@ -11,7 +11,7 @@ const newProjectButton =  <HTMLButtonElement> document.querySelector('.add-proje
 const hamburger = document.querySelector('.hamburger')!
 const sidebar = <HTMLDivElement> document.querySelector('.sidebar')!
 let windowSize = window.matchMedia("(min-width: 601px)")
-
+const projectTitle = document.querySelectorAll<HTMLHeadElement>('.project-list')!;
 
 addTask.addEventListener('click', function(){
     console.log("testing")
@@ -47,4 +47,4 @@ addEventListener('resize', function(){
     }
 });
 
-export { allTasks , projectList}
+export { allTasks , projectList }

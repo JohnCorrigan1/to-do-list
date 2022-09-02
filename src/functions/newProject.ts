@@ -1,5 +1,6 @@
 import  doThis, { allTasks, appendTask} from "./createTask";
 import { projectList } from ".."
+import renderProjectPage from "./renderProject";
 
 export default class Project{
         name: string;
@@ -10,6 +11,7 @@ export default class Project{
                 this.tasks = tasks;
         }
 }
+
 
 function createProject(){
         
@@ -46,7 +48,7 @@ function createProject(){
                 newProject.classList.add('project-list')
                 newProject.textContent = projectNameInput.value
                 projectList.push(projectNameInput.value)
-                const project = new Project(projectNameInput.value, allTasks)
+                const project = new Project(projectNameInput.value, [])
                 console.log(project)
                 projectHeader.appendChild(newProject)
                 console.log(projectList)
@@ -54,6 +56,11 @@ function createProject(){
                 add3.innerHTML = ''
                 add4.innerHTML = ''
                 newProjectButton.disabled = false
+
+                newProject.addEventListener('click', function(){
+                        console.log("This is not an emergency")
+                        renderProjectPage(project)
+                })
         })
 
         cancelIt.addEventListener('click', function(){
@@ -61,7 +68,11 @@ function createProject(){
                 add4.innerHTML = ''
                 newProjectButton.disabled = false
         })
+
+        
+        
+        
 }
 
 
-export { createProject, Project}
+export { createProject, Project }
