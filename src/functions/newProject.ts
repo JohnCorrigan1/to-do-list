@@ -1,4 +1,15 @@
-export default 
+import  doThis, { appendTask} from "./createTask";
+
+export default class project{
+        name: string;
+        projectTasks: doThis[];
+
+        constructor(name: string, projectTasks: doThis[]){
+                this.name = name;
+                this.projectTasks = projectTasks;
+        }
+
+}
 
 
 
