@@ -93,6 +93,23 @@ body{
     cursor: pointer;
 }
 
+.project-page-label{
+    color:#6D9886;
+    font-size: x-large;
+    font-weight: 700;
+}
+
+.project-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#6D9886;
+    padding-top: 10px;
+    font-size: x-large;
+    font-weight: 700;
+
+}
+
 .todos{
     display: flex;
     flex-direction: column;
