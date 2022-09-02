@@ -1,20 +1,19 @@
-import  doThis, { appendTask} from "./createTask";
+import  doThis, { allTasks, appendTask} from "./createTask";
+import { projectList } from ".."
 
-export default class project{
+export default class Project{
         name: string;
-        projectTasks: doThis[];
+       tasks: doThis[];
 
-        constructor(name: string, projectTasks: doThis[]){
+        constructor(name: string, tasks: doThis[]){
                 this.name = name;
-                this.projectTasks = projectTasks;
+                this.tasks = tasks;
         }
-
 }
 
-
-
-
 function createProject(){
+        
+
         const projectHeader = document.querySelector('.project-header')!
         const newProjectButton = <HTMLButtonElement> document.querySelector('.add-project')
 
@@ -46,8 +45,11 @@ function createProject(){
                 const newProject = document.createElement('h3')
                 newProject.classList.add('project-list')
                 newProject.textContent = projectNameInput.value
-
+                projectList.push(projectNameInput.value)
+                const project = new Project(projectNameInput.value, allTasks)
+                console.log(project)
                 projectHeader.appendChild(newProject)
+                console.log(projectList)
 
                 add3.innerHTML = ''
                 add4.innerHTML = ''
@@ -62,4 +64,4 @@ function createProject(){
 }
 
 
-export { createProject }
+export { createProject, Project}

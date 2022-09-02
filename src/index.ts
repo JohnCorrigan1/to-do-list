@@ -1,15 +1,10 @@
 import _ from 'lodash';
 import getTask from './functions/getTask'
-import createProject from './functions/newProject';
+import Project, { createProject }from './functions/newProject';
 import doThis from './functions/createTask';
 
 const allTasks: doThis[] = []
-let helloWorld: string = "Hello World!";
-console.log(helloWorld)
-
-helloWorld = "hi";
-
-console.log(helloWorld);
+let projectList: string[] = [];
 
 const addTask = <HTMLButtonElement> document.getElementById('add-task')!;
 const newProjectButton =  <HTMLButtonElement> document.querySelector('.add-project')!
@@ -52,4 +47,4 @@ addEventListener('resize', function(){
     }
 });
 
-export { allTasks }
+export { allTasks , projectList}
