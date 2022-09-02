@@ -1,4 +1,9 @@
-export default function createProject(){
+export default 
+
+
+
+
+function createProject(){
         const projectHeader = document.querySelector('.project-header')!
         const newProjectButton = <HTMLButtonElement> document.querySelector('.add-project')
 
@@ -46,3 +51,4 @@ export default function createProject(){
 }
 
 
+export { createProject }
