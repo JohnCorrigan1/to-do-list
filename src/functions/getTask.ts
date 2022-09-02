@@ -1,4 +1,6 @@
-import doThis, { appendTask, allTasks } from './createTask'
+import doThis from './createTask'
+import appendTask from '../ui/appendTask'
+import { allTasks } from '..'
 
 export default function getTask(){
     const add = document.querySelector('.add')!
