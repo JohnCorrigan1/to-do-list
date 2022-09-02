@@ -1,4 +1,4 @@
-import Project from "./newProject";
+import Project from "../functions/newProject";
 
 export default function renderProjectPage(project: Project){
     const projectPageDiv = document.querySelector('.project-page')!
