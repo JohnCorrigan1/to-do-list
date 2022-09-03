@@ -1,4 +1,8 @@
+import _ from "lodash";
 import doThis from "../functions/createTask";
+// import Delete from './../imgs/delete.png';
+import { trash, check } from './images'
+
 
 export default function appendTask(allTasks: doThis[]){
     const toDos = document.querySelector('.tasks')!
@@ -21,9 +25,10 @@ export default function appendTask(allTasks: doThis[]){
             itemDate.classList.add('date')
             itemDate.textContent = "Due Date: " + element.date
 
-            taskDiv.appendChild(done)
+            taskDiv.appendChild(check)
             taskDiv.appendChild(itemTitle)
             taskDiv.appendChild(itemDate)
+            taskDiv.appendChild(trash)
             toDos.appendChild(taskDiv)
     });
 }

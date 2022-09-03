@@ -10,6 +10,9 @@ let projectList: Project[] = [];
 
 // localStorage.setItem("myLocalStorage")
 
+
+const trash = document.querySelector('.delete-task')!
+const check = document.querySelector('.task-done')!
 const renderAllTasks = document.querySelector('.all-tasks')!
 const addTask = <HTMLButtonElement> document.getElementById('add-task')!;
 const newProjectButton =  <HTMLButtonElement> document.querySelector('.add-project')!
@@ -17,6 +20,7 @@ const hamburger = document.querySelector('.hamburger')!
 const sidebar = <HTMLDivElement> document.querySelector('.sidebar')!
 const currentProject = document.querySelector('.project-page-label')!
 let windowSize = window.matchMedia("(min-width: 700px)")
+let isActive: boolean = false
 
 
 addTask.addEventListener('click', function(){
@@ -36,7 +40,9 @@ newProjectButton.addEventListener('click', function(){
     newProjectButton.disabled = true;
 })
 
-let isActive: boolean = false
+
+
+
 
 hamburger.addEventListener('click', function(){
     if(!isActive){
