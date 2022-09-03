@@ -4,6 +4,8 @@ import doThis from './functions/createTask';
 import createProject from './ui/appendProject';
 import Project from './functions/newProject';
 import appendTask from './ui/appendTask';
+import { check, trash } from './ui/images'
+import removeTask from './functions/removeTask';
 
 let allTasks: doThis[] = []
 let projectList: Project[] = [];
@@ -11,8 +13,6 @@ let projectList: Project[] = [];
 // localStorage.setItem("myLocalStorage")
 
 
-const trash = document.querySelector('.delete-task')!
-const check = document.querySelector('.task-done')!
 const renderAllTasks = document.querySelector('.all-tasks')!
 const addTask = <HTMLButtonElement> document.getElementById('add-task')!;
 const newProjectButton =  <HTMLButtonElement> document.querySelector('.add-project')!
@@ -24,7 +24,6 @@ let isActive: boolean = false
 
 
 addTask.addEventListener('click', function(){
-    console.log("testing")
     getTask();
     addTask.disabled = true;
 })
@@ -35,12 +34,23 @@ renderAllTasks.addEventListener('click', function(){
 })
 
 newProjectButton.addEventListener('click', function(){
-    console.log("testing 2")
     createProject();
     newProjectButton.disabled = true;
 })
 
+trash.addEventListener('click', function(){
+    console.log(this.parentElement?.firstChild?.nextSibling?.textContent)
+    const taskClicked = this.parentElement?.firstChild?.nextSibling?.textContent;
+    const taskDiv = this.parentElement
+    if(taskClicked && taskDiv){
+    removeTask(taskClicked, taskDiv);
+    console.log(allTasks)
+    }
+})
 
+check.addEventListener('click', function(){
+
+})
 
 
 

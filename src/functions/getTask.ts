@@ -61,6 +61,7 @@ export default function getTask(){
         inputName.value = ''
         date.value = ''
         allTasks.push(task)
+        console.log(allTasks)
         if(currentProject.textContent !== "All To Do's"){
             for(let i = 0; i < projectList.length; i++){
                 if(projectList[i].name === currentProject.textContent){
