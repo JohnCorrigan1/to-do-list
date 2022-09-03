@@ -53,26 +53,30 @@ export default function getTask(){
     add2.appendChild(addIt)
     add2.appendChild(cancelIt)
 
-    const currentProject = document.querySelector('.project-page-label')!
+    const currentProject = <HTMLElement> document.querySelector('.project-page-label')
 
     addIt.addEventListener('click', function(){
         console.log("Testing 2")
-        const task = new doThis(inputName.value, date.value)
+        const task = new doThis(inputName.value, date.value, '')
         inputName.value = ''
         date.value = ''
-        allTasks.push(task)
         console.log(allTasks)
         if(currentProject.textContent !== "All To Do's"){
-            for(let i = 0; i < projectList.length; i++){
-                if(projectList[i].name === currentProject.textContent){
-                    projectList[i].tasks.push(task)
-                    appendTask(projectList[i].tasks)
-                    console.log("This project is ", projectList[i])
+            if(typeof(currentProject.textContent) === 'string'){
+                const task = new doThis(inputName.value, date.value, currentProject.textContent)
+                for(let i = 0; i < projectList.length; i++){
+                    if(projectList[i].name === currentProject.textContent){
+                        projectList[i].tasks.push(task)
+                        allTasks.push(task)
+                        appendTask(projectList[i].tasks)
+                        console.log("This project is ", projectList[i])
+                    }
                 }
             }
         }
         else{
-        appendTask(allTasks);
+            allTasks.push(task)
+            appendTask(allTasks);
         }
         add.innerHTML = ''
         add2.innerHTML = ''

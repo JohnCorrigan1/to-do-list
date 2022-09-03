@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _, { head } from 'lodash';
 import getTask from './functions/getTask'
 import doThis from './functions/createTask';
 import createProject from './ui/appendProject';
@@ -48,9 +48,13 @@ trash.addEventListener('click', function(){
     }
 })
 
-check.addEventListener('click', function(){
-
-})
+//removes abiility for things
+// check.addEventListener('click', function(){
+//     const headerDone = this.parentElement?.firstChild?.nextSibling as HTMLElement;
+//     if(headerDone){
+//         headerDone.style.setProperty('text-decoration', 'line-through');
+//     }
+// })
 
 
 

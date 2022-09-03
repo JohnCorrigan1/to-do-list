@@ -1,4 +1,3 @@
-import { remove } from "lodash";
 import { allTasks } from "..";
 
 export default function removeTask(taskClicked: string, taskDiv: HTMLElement){
