@@ -1,6 +1,7 @@
 import Project from "../functions/newProject"
 import { projectList } from ".."
 import renderProjectPage from "./renderProject"
+import doThis from "../functions/createTask"
 
 export default function createProject(){
 
@@ -35,8 +36,8 @@ export default function createProject(){
             const newProject = document.createElement('h3')
             newProject.classList.add('project-list')
             newProject.textContent = projectNameInput.value
-            projectList.push(projectNameInput.value)
             const project = new Project(projectNameInput.value, [])
+            projectList.push(project)
             console.log(project)
             projectHeader.appendChild(newProject)
             console.log(projectList)

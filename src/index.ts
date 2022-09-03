@@ -2,9 +2,10 @@ import _ from 'lodash';
 import getTask from './functions/getTask'
 import doThis from './functions/createTask';
 import createProject from './ui/appendProject';
+import Project from './functions/newProject';
 
-const allTasks: doThis[] = []
-let projectList: string[] = [];
+let allTasks: doThis[] = []
+let projectList: Project[] = [];
 
 const addTask = <HTMLButtonElement> document.getElementById('add-task')!;
 const newProjectButton =  <HTMLButtonElement> document.querySelector('.add-project')!
