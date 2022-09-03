@@ -69,6 +69,11 @@ body{
     height: 100%;
 }
 
+.all-tasks:hover{
+    color:#6D9886;
+    cursor: pointer;
+}
+
 .project-name-input{
     width: 125px;
 }
