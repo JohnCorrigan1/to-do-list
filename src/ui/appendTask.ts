@@ -15,6 +15,18 @@ export default function appendTask(allTasks: doThis[]){
             trash.src = Trash;
             trash.classList.add('delete-task')
 
+            if(trash){
+                trash.addEventListener('click', function(){
+                    console.log(this.parentElement?.firstChild?.nextSibling?.textContent)
+                    const taskClicked = this.parentElement?.firstChild?.nextSibling?.textContent;
+                    const taskDiv = this.parentElement
+                    if(taskClicked && taskDiv){
+                    removeTask(taskClicked, taskDiv);
+                    console.log(allTasks)
+                    }
+                })
+                }
+
             const check = new Image();
             check.src = Check;
             check.classList.add('task-done')
