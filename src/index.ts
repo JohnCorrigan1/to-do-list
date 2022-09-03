@@ -1,10 +1,10 @@
-import _ from 'lodash';
+import _, { head } from 'lodash';
 import getTask from './functions/getTask'
 import doThis from './functions/createTask';
 import createProject from './ui/appendProject';
 import Project from './functions/newProject';
 import appendTask from './ui/appendTask';
-import { check, trash } from './ui/images'
+// import { check, trash } from './ui/images'
 import removeTask from './functions/removeTask';
 
 let allTasks: doThis[] = []
@@ -12,7 +12,7 @@ let projectList: Project[] = [];
 
 // localStorage.setItem("myLocalStorage")
 
-
+const trash = <HTMLElement> document.querySelector('.delete-task')
 const renderAllTasks = document.querySelector('.all-tasks')!
 const addTask = <HTMLButtonElement> document.getElementById('add-task')!;
 const newProjectButton =  <HTMLButtonElement> document.querySelector('.add-project')!
@@ -38,6 +38,8 @@ newProjectButton.addEventListener('click', function(){
     newProjectButton.disabled = true;
 })
 
+
+if(trash){
 trash.addEventListener('click', function(){
     console.log(this.parentElement?.firstChild?.nextSibling?.textContent)
     const taskClicked = this.parentElement?.firstChild?.nextSibling?.textContent;
@@ -47,10 +49,15 @@ trash.addEventListener('click', function(){
     console.log(allTasks)
     }
 })
+}
 
-check.addEventListener('click', function(){
-
-})
+//removes abiility for things
+// check.addEventListener('click', function(){
+//     const headerDone = this.parentElement?.firstChild?.nextSibling as HTMLElement;
+//     if(headerDone){
+//         headerDone.style.setProperty('text-decoration', 'line-through');
+//     }
+// })
 
 
 

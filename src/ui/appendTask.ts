@@ -1,7 +1,8 @@
 import _ from "lodash";
 import doThis from "../functions/createTask";
 // import Delete from './../imgs/delete.png';
-import { trash, check } from './images'
+import { Trash, Check } from './images'
+import removeTask from "../functions/removeTask";
 
 
 export default function appendTask(allTasks: doThis[]){
@@ -9,6 +10,26 @@ export default function appendTask(allTasks: doThis[]){
     toDos.innerHTML = ''
     
         allTasks.forEach(element => {
+
+            const trash = new Image();
+            trash.src = Trash;
+            trash.classList.add('delete-task')
+
+            if(trash){
+                trash.addEventListener('click', function(){
+                    console.log(this.parentElement?.firstChild?.nextSibling?.textContent)
+                    const taskClicked = this.parentElement?.firstChild?.nextSibling?.textContent;
+                    const taskDiv = this.parentElement
+                    if(taskClicked && taskDiv){
+                    removeTask(taskClicked, taskDiv);
+                    console.log(allTasks)
+                    }
+                })
+                }
+
+            const check = new Image();
+            check.src = Check;
+            check.classList.add('task-done')
             
             const taskDiv = document.createElement('div')
             taskDiv.classList.add('item')
