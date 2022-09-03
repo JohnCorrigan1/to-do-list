@@ -61,17 +61,18 @@ export default function getTask(){
         inputName.value = ''
         date.value = ''
         allTasks.push(task)
-        if(currentProject.textContent !== "All-To-Do's"){
+        if(currentProject.textContent !== "All To Do's"){
             for(let i = 0; i < projectList.length; i++){
                 if(projectList[i].name === currentProject.textContent){
                     projectList[i].tasks.push(task)
+                    appendTask(projectList[i].tasks)
                     console.log("This project is ", projectList[i])
                 }
             }
         }
-
-        console.log(allTasks)
+        else{
         appendTask(allTasks);
+        }
         add.innerHTML = ''
         add2.innerHTML = ''
         newTask.disabled = false

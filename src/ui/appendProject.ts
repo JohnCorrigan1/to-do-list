@@ -1,10 +1,12 @@
 import Project from "../functions/newProject"
 import { projectList } from ".."
 import renderProjectPage from "./renderProject"
+import appendTask from "./appendTask"
 import doThis from "../functions/createTask"
 
 export default function createProject(){
 
+    const toDosDiv = document.querySelector('.tasks')!
     const projectHeader = document.querySelector('.project-header')!
     const newProjectButton = <HTMLButtonElement> document.querySelector('.add-project')
 
@@ -38,16 +40,15 @@ export default function createProject(){
             newProject.textContent = projectNameInput.value
             const project = new Project(projectNameInput.value, [])
             projectList.push(project)
-            console.log(project)
             projectHeader.appendChild(newProject)
-            console.log(projectList)
 
             add3.innerHTML = ''
             add4.innerHTML = ''
             newProjectButton.disabled = false
 
             newProject.addEventListener('click', function(){
-                    console.log("This is not an emergency")
+                    toDosDiv.innerHTML = ''
+                    appendTask(project.tasks)
                     renderProjectPage(project)
             })
     })
