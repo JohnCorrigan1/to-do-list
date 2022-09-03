@@ -57,13 +57,15 @@ export default function getTask(){
 
     addIt.addEventListener('click', function(){
         console.log("Testing 2")
-        const task = new doThis(inputName.value, date.value, '')
-        inputName.value = ''
-        date.value = ''
+        
+        // inputName.value = ''
+        // date.value = ''
         console.log(allTasks)
         if(currentProject.textContent !== "All To Do's"){
             if(typeof(currentProject.textContent) === 'string'){
                 const task = new doThis(inputName.value, date.value, currentProject.textContent)
+                inputName.value = ''
+                date.value = ''
                 for(let i = 0; i < projectList.length; i++){
                     if(projectList[i].name === currentProject.textContent){
                         projectList[i].tasks.push(task)
@@ -75,6 +77,9 @@ export default function getTask(){
             }
         }
         else{
+            const task = new doThis(inputName.value, date.value, '')
+            inputName.value = ''
+            date.value = ''
             allTasks.push(task)
             appendTask(allTasks);
         }
