@@ -3,14 +3,11 @@ import doThis from "../functions/createTask";
 export default function appendTask(allTasks: doThis[]){
     const toDos = document.querySelector('.tasks')!
     toDos.innerHTML = ''
-    const currentProject = document.querySelector('.project-page-label')!
-
     
         allTasks.forEach(element => {
             
             const taskDiv = document.createElement('div')
             taskDiv.classList.add('item')
-            
 
             const done = document.createElement('button')
             done.classList.add('done')

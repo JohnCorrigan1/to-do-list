@@ -8,6 +8,8 @@ import appendTask from './ui/appendTask';
 let allTasks: doThis[] = []
 let projectList: Project[] = [];
 
+// localStorage.setItem("myLocalStorage")
+
 const renderAllTasks = document.querySelector('.all-tasks')!
 const addTask = <HTMLButtonElement> document.getElementById('add-task')!;
 const newProjectButton =  <HTMLButtonElement> document.querySelector('.add-project')!
