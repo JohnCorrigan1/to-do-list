@@ -32,8 +32,6 @@ export default function renderProjectList(projectList: string[]){
             })
         }
 
-
-
         newProjectContainer.appendChild(newProject)
         newProjectContainer.appendChild(trash)
         projectContainer.appendChild(newProjectContainer)

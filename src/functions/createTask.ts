@@ -10,5 +10,3 @@ export default class createTask{
         this.projectGroup = projectGroup;
     }
 }
-
-

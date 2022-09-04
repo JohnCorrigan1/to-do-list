@@ -1,5 +1,3 @@
-// import Project from "../functions/newProject";
-
 export default function renderProjectPage(projectName: string){
     const projectPageDiv = document.querySelector('.project-page')!
     

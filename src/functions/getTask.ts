@@ -1,13 +1,10 @@
 import createTask from './createTask'
 import appendTask from '../ui/appendTask'
-// import { taskArr } from '..'
 import { setStorageAll } from './localStorage'
-// import { getStorageAll, setStorageAll, getStorageProjects, setStorageProjects } from './localStorage'
 
 export default function getTask(taskArr: createTask[]){
     const add = document.querySelector('.add')!
     const add2 = document.querySelector('.add2')!
-    const newTask = <HTMLButtonElement> document.querySelector('.add-task')!
     
     const nameTask = document.createElement('div')
     nameTask.classList.add('name-task')
@@ -60,11 +57,6 @@ export default function getTask(taskArr: createTask[]){
                 inputName.value = ''
                 date.value = ''
                 appendTask();
-                // taskArr.forEach(item =>{
-                //     if(item.projectGroup === currentProject.textContent){
-                //         // appendTask();
-                //     }
-                // })
             }
         }
         else{
@@ -72,43 +64,7 @@ export default function getTask(taskArr: createTask[]){
             inputName.value = ''
             date.value = ''
             appendTask();
-            // setStorageAll(taskArr)
         }
         setStorageAll(taskArr)
     })
 }
-
-//                 for(let i = 0; i < projectList.length; i++){
-//                     if(projectList[i].name === currentProject.textContent){
-//                         // projectList[i].tasks.push(task)
-//                         // allTasks.push(task)
-//                         setStorageAll(task)
-//                         setStorageProjects(task)
-//                         // localStorage.setItem("allTasks", JSON.stringify(allTasks))
-//                         // localStorage.setItem("projectList", JSON.stringify(projectList))
-//                         appendTask()
-//                         console.log("This project is ", projectList[i])
-//                     }
-//                 }
-//             }
-        // }
-//         else{
-//             const task = new doThis(inputName.value, date.value, '')
-//             inputName.value = ''
-//             date.value = ''
-//             // allTasks.push(task)
-//             setStorageAll(task)
-//             // localStorage.setItem("allTasks", JSON.stringify(allTasks))
-//             appendTask();
-//         }
-//         add.innerHTML = ''
-//         add2.innerHTML = ''
-//         newTask.disabled = false
-//     })
-
-//     cancelIt.addEventListener('click', function(){
-//         add.innerHTML = ''
-//         add2.innerHTML = ''
-//         newTask.disabled = false
-//     })
-// }

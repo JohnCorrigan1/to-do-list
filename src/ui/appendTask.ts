@@ -1,16 +1,13 @@
-// import _ from "lodash";
-// import doThis from "../functions/createTask";
-// // import Delete from './../imgs/delete.png';
-import createTask from '../functions/createTask';
 import { Trash, Check } from './images'
 import removeTask from "../functions/removeTask";
 import { taskArr } from ".."
 
 export default function appendTask(){
+
     const toDos = document.querySelector('.tasks')!
     const projectName = document.querySelector('.project-page-label')!
     toDos.innerHTML = ''
-    console.log(taskArr)
+
     taskArr.forEach(item =>{
         const trash = new Image();
         trash.src = Trash
@@ -27,15 +24,12 @@ export default function appendTask(){
             const taskDiv = this.parentElement
             if(taskClicked && taskDiv){
                 removeTask(taskClicked, taskDiv);
-                // console.log(allTasks)
                 }
             })
         }
         
         const taskDiv = document.createElement('div')
         taskDiv.classList.add('item')
-        
-                 
         
         const itemTitle = document.createElement('h3')
         itemTitle.classList.add('item-title')
@@ -44,7 +38,6 @@ export default function appendTask(){
         const itemDate = document.createElement('p')
         itemDate.classList.add('date')
         itemDate.textContent = "Due Date: " + item.date
-
 
         if(projectName.textContent === item.projectGroup){
             taskDiv.appendChild(check)
