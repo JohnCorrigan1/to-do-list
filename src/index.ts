@@ -1,16 +1,17 @@
 import _, { head } from 'lodash';
 import getTask from './functions/getTask'
 // import doThis from './functions/createTask';
-// import createProject from './ui/appendProject';
+import createProject from './ui/appendProject';
 // import Project from './functions/newProject';
 import appendTask from './ui/appendTask';
 // import { check, trash } from './ui/images'
 // import removeTask from './functions/removeTask';
 import createTask from './functions/createTask';
-import { getStorageAll, setStorageAll } from './functions/localStorage';
+import { getStorageAll, setStorageAll, getStorageProjects } from './functions/localStorage';
+import renderProjectList from './ui/renderProjectList';
 
 
-
+let projectList: string[];
 let taskArr: createTask[];
 // taskArr.push(new createTask("Example Task", "6-22-2022", 'project'))
 
@@ -20,7 +21,15 @@ if(localStorage.getItem("tasks") === null){
 }
 else{
     taskArr = getStorageAll();
-    console.log(taskArr)
+    // console.log(taskArr)
+}
+
+if(localStorage.getItem("projectList") === null){
+    projectList = [];
+}
+
+else {
+    projectList = getStorageProjects();
 }
     // setStorageAll(taskArr);
     
@@ -28,6 +37,8 @@ else{
     
     // setStorageAll(taskArr);
 
+console.log("project list: ", projectList)
+renderProjectList(projectList);
 
 appendTask();
 
@@ -53,15 +64,15 @@ addTask.addEventListener('click', function(){
     addTask.disabled = true;
 })
 
-// renderAllTasks.addEventListener('click', function(){
-//     currentProject.textContent = "All To Do's"
-//     appendTask()
-// })
+renderAllTasks.addEventListener('click', function(){
+    currentProject.textContent = "All To Do's"
+    appendTask()
+})
 
-// newProjectButton.addEventListener('click', function(){
-//     createProject();
-//     newProjectButton.disabled = true;
-// })
+newProjectButton.addEventListener('click', function(){
+    createProject(projectList);
+    newProjectButton.disabled = true;
+})
 
 
 // if(trash){
@@ -106,4 +117,4 @@ addEventListener('resize', function(){
     }
 });
 
-export { taskArr }
+export { taskArr, projectList }
