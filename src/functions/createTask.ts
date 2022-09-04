@@ -1,4 +1,4 @@
-export default class doThis{
+export default class createTask{
 
     name: string;
     date: string;

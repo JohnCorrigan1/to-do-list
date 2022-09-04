@@ -1,11 +1,11 @@
-import  doThis from "./createTask";
+// import  doThis from "./createTask";
 
-export default class Project{
-        name: string;
-        tasks: doThis[];
+// export default class Project{
+//         name: string;
+//         tasks: doThis[];
 
-        constructor(name: string, tasks: doThis[]){
-                this.name = name;
-                this.tasks = tasks;
-        }
-}
+//         constructor(name: string, tasks: doThis[]){
+//                 this.name = name;
+//                 this.tasks = tasks;
+//         }
+// }

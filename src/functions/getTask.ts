@@ -1,9 +1,10 @@
-import doThis from './createTask'
+import createTask from './createTask'
 import appendTask from '../ui/appendTask'
-import { allTasks, projectList } from '..'
-import { getStorageAll, setStorageAll, getStorageProjects, setStorageProjects } from './localStorage'
+// import { taskArr } from '..'
+import { setStorageAll } from './localStorage'
+// import { getStorageAll, setStorageAll, getStorageProjects, setStorageProjects } from './localStorage'
 
-export default function getTask(){
+export default function getTask(taskArr: createTask[]){
     const add = document.querySelector('.add')!
     const add2 = document.querySelector('.add2')!
     const newTask = <HTMLButtonElement> document.querySelector('.add-task')!
@@ -48,50 +49,66 @@ export default function getTask(){
     add.appendChild(taskDate)
     add2.appendChild(addIt)
     add2.appendChild(cancelIt)
-    let allLength = localStorage.allTasks.length
-    let allTasks = getStorageAll();
-    console.log(allTasks)
 
-    let projectList = getStorageProjects();
+
     const currentProject = <HTMLElement> document.querySelector('.project-page-label')
 
     addIt.addEventListener('click', function(){
         if(currentProject.textContent !== "All To Do's"){
             if(typeof(currentProject.textContent) === 'string'){
-                const task = new doThis(inputName.value, date.value, currentProject.textContent)
+                taskArr.push(new createTask(inputName.value, date.value, currentProject.textContent))
                 inputName.value = ''
                 date.value = ''
-                for(let i = 0; i < projectList.length; i++){
-                    if(projectList[i].name === currentProject.textContent){
-                        // projectList[i].tasks.push(task)
-                        // allTasks.push(task)
-                        setStorageAll(task)
-                        setStorageProjects(task)
-                        // localStorage.setItem("allTasks", JSON.stringify(allTasks))
-                        // localStorage.setItem("projectList", JSON.stringify(projectList))
-                        appendTask()
-                        console.log("This project is ", projectList[i])
-                    }
-                }
+                appendTask();
+                // taskArr.forEach(item =>{
+                //     if(item.projectGroup === currentProject.textContent){
+                //         // appendTask();
+                //     }
+                // })
             }
         }
         else{
-            const task = new doThis(inputName.value, date.value, '')
+            taskArr.push(new createTask(inputName.value, date.value, ''))
             inputName.value = ''
             date.value = ''
-            // allTasks.push(task)
-            setStorageAll(task)
-            // localStorage.setItem("allTasks", JSON.stringify(allTasks))
             appendTask();
+            // setStorageAll(taskArr)
         }
-        add.innerHTML = ''
-        add2.innerHTML = ''
-        newTask.disabled = false
-    })
-
-    cancelIt.addEventListener('click', function(){
-        add.innerHTML = ''
-        add2.innerHTML = ''
-        newTask.disabled = false
+        setStorageAll(taskArr)
     })
 }
+
+//                 for(let i = 0; i < projectList.length; i++){
+//                     if(projectList[i].name === currentProject.textContent){
+//                         // projectList[i].tasks.push(task)
+//                         // allTasks.push(task)
+//                         setStorageAll(task)
+//                         setStorageProjects(task)
+//                         // localStorage.setItem("allTasks", JSON.stringify(allTasks))
+//                         // localStorage.setItem("projectList", JSON.stringify(projectList))
+//                         appendTask()
+//                         console.log("This project is ", projectList[i])
+//                     }
+//                 }
+//             }
+        // }
+//         else{
+//             const task = new doThis(inputName.value, date.value, '')
+//             inputName.value = ''
+//             date.value = ''
+//             // allTasks.push(task)
+//             setStorageAll(task)
+//             // localStorage.setItem("allTasks", JSON.stringify(allTasks))
+//             appendTask();
+//         }
+//         add.innerHTML = ''
+//         add2.innerHTML = ''
+//         newTask.disabled = false
+//     })
+
+//     cancelIt.addEventListener('click', function(){
+//         add.innerHTML = ''
+//         add2.innerHTML = ''
+//         newTask.disabled = false
+//     })
+// }

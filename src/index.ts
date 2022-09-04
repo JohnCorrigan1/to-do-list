@@ -1,23 +1,36 @@
 import _, { head } from 'lodash';
 import getTask from './functions/getTask'
-import doThis from './functions/createTask';
-import createProject from './ui/appendProject';
-import Project from './functions/newProject';
+// import doThis from './functions/createTask';
+// import createProject from './ui/appendProject';
+// import Project from './functions/newProject';
 import appendTask from './ui/appendTask';
 // import { check, trash } from './ui/images'
-import removeTask from './functions/removeTask';
+// import removeTask from './functions/removeTask';
+import createTask from './functions/createTask';
+import { getStorageAll, setStorageAll } from './functions/localStorage';
 
 
-const example: doThis = new doThis("Example Task", "6-22-2022", '')
-localStorage.setItem("allTasks", JSON.stringify(example))
 
+let taskArr: createTask[];
+// taskArr.push(new createTask("Example Task", "6-22-2022", 'project'))
 
-let allTasks: doThis[] = [example];
-let projectList: Project[] = [];
+if(localStorage.getItem("tasks") === null){
+    taskArr = [];
+    // console.log(taskArr)
+}
+else{
+    taskArr = getStorageAll();
+    console.log(taskArr)
+}
+    // setStorageAll(taskArr);
+    
+    // taskArr.push(new createTask("ANother example", "7-22-2022", ''))
+    
+    // setStorageAll(taskArr);
+
 
 appendTask();
-console.log(localStorage.allTasks.length)
-console.log(localStorage.allTasks)
+
 // if(JSON.parse(localStorage.getItem("allTasks")))
 // allTasks = JSON.parse(localStorage.getItem("allTasks")
 
@@ -36,32 +49,32 @@ let isActive: boolean = false
 
 
 addTask.addEventListener('click', function(){
-    getTask();
+    getTask(taskArr);
     addTask.disabled = true;
 })
 
-renderAllTasks.addEventListener('click', function(){
-    currentProject.textContent = "All To Do's"
-    appendTask()
-})
+// renderAllTasks.addEventListener('click', function(){
+//     currentProject.textContent = "All To Do's"
+//     appendTask()
+// })
 
-newProjectButton.addEventListener('click', function(){
-    createProject();
-    newProjectButton.disabled = true;
-})
+// newProjectButton.addEventListener('click', function(){
+//     createProject();
+//     newProjectButton.disabled = true;
+// })
 
 
-if(trash){
-trash.addEventListener('click', function(){
-    console.log(this.parentElement?.firstChild?.nextSibling?.textContent)
-    const taskClicked = this.parentElement?.firstChild?.nextSibling?.textContent;
-    const taskDiv = this.parentElement
-    if(taskClicked && taskDiv){
-    removeTask(taskClicked, taskDiv);
-    console.log(allTasks)
-    }
-})
-}
+// if(trash){
+// trash.addEventListener('click', function(){
+//     console.log(this.parentElement?.firstChild?.nextSibling?.textContent)
+//     const taskClicked = this.parentElement?.firstChild?.nextSibling?.textContent;
+//     const taskDiv = this.parentElement
+//     if(taskClicked && taskDiv){
+//     removeTask(taskClicked, taskDiv);
+//     // console.log(allTasks)
+//     }
+// })
+// }
 
 //removes abiility for things
 // check.addEventListener('click', function(){
@@ -93,4 +106,4 @@ addEventListener('resize', function(){
     }
 });
 
-export { allTasks , projectList}
+export { taskArr }
