@@ -7,10 +7,22 @@ import appendTask from './ui/appendTask';
 // import { check, trash } from './ui/images'
 import removeTask from './functions/removeTask';
 
-let allTasks: doThis[] = []
+
+const example: doThis = new doThis("Example Task", "6-22-2022", '')
+localStorage.setItem("allTasks", JSON.stringify(example))
+
+
+let allTasks: doThis[] = [example];
 let projectList: Project[] = [];
 
-// localStorage.setItem("myLocalStorage")
+appendTask();
+console.log(localStorage.allTasks.length)
+console.log(localStorage.allTasks)
+// if(JSON.parse(localStorage.getItem("allTasks")))
+// allTasks = JSON.parse(localStorage.getItem("allTasks")
+
+// localStorage.setItem("allTasks", JSON.stringify(allTasks))
+// localStorage.setItem("projectList", JSON.stringify(projectList))
 
 const trash = <HTMLElement> document.querySelector('.delete-task')
 const renderAllTasks = document.querySelector('.all-tasks')!
@@ -30,7 +42,7 @@ addTask.addEventListener('click', function(){
 
 renderAllTasks.addEventListener('click', function(){
     currentProject.textContent = "All To Do's"
-    appendTask(allTasks)
+    appendTask()
 })
 
 newProjectButton.addEventListener('click', function(){

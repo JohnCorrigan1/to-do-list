@@ -48,7 +48,7 @@ export default function createProject(){
 
             newProject.addEventListener('click', function(){
                     toDosDiv.innerHTML = ''
-                    appendTask(project.tasks)
+                    appendTask()
                     renderProjectPage(project)
             })
     })

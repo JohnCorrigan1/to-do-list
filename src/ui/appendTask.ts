@@ -4,12 +4,13 @@ import doThis from "../functions/createTask";
 import { Trash, Check } from './images'
 import removeTask from "../functions/removeTask";
 
-
-export default function appendTask(allTasks: doThis[]){
+// allTasks: doThis[]
+export default function appendTask(){
     const toDos = document.querySelector('.tasks')!
     toDos.innerHTML = ''
     
-        allTasks.forEach(element => {
+    
+        for(let x in localStorage.allTasks){
 
             const trash = new Image();
             trash.src = Trash;
@@ -22,7 +23,7 @@ export default function appendTask(allTasks: doThis[]){
                     const taskDiv = this.parentElement
                     if(taskClicked && taskDiv){
                     removeTask(taskClicked, taskDiv);
-                    console.log(allTasks)
+                    // console.log(allTasks)
                     }
                 })
                 }
@@ -40,16 +41,16 @@ export default function appendTask(allTasks: doThis[]){
 
             const itemTitle = document.createElement('h3')
             itemTitle.classList.add('item-title')
-            itemTitle.textContent = element.name
+            itemTitle.textContent = localStorage.allTasks[x].name
 
             const itemDate = document.createElement('p')
             itemDate.classList.add('date')
-            itemDate.textContent = "Due Date: " + element.date
+            itemDate.textContent = "Due Date: " + localStorage.allTasks[x].date
 
             taskDiv.appendChild(check)
             taskDiv.appendChild(itemTitle)
             taskDiv.appendChild(itemDate)
             taskDiv.appendChild(trash)
             toDos.appendChild(taskDiv)
-    });
+    }
 }
