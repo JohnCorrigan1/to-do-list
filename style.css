@@ -88,6 +88,12 @@ body{
     color:#F6F6F6;
 }
 
+.project-list-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .add-project:hover{
     background-color: lightgray;
     cursor: pointer;
