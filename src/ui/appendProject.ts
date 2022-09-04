@@ -30,16 +30,22 @@ export default function createProject(projectList: string[]){
     add4.appendChild(cancelIt) 
     
     addIt.addEventListener('click', function(){
-        addIt.disabled = true
+        if(projectNameInput.value !== ''){
+            addIt.disabled = true
 
-        projectList.push(projectNameInput.value)
-        console.log(projectList)
-        setStorageProjects(projectList)
-        renderProjectList(projectList);
+            projectList.push(projectNameInput.value)
+            console.log(projectList)
+            setStorageProjects(projectList)
+            renderProjectList(projectList);
 
-        add3.innerHTML = ''
-        add4.innerHTML = ''
-        newProjectButton.disabled = false
+            add3.innerHTML = ''
+            add4.innerHTML = ''
+            newProjectButton.disabled = false
+        }
+        else{
+            projectNameInput.style.borderColor = 'red'
+            projectNameLabel.textContent += " required"
+        }
     })
 
     cancelIt.addEventListener('click', function(){

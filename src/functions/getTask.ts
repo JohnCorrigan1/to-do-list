@@ -5,6 +5,7 @@ import { setStorageAll } from './localStorage'
 export default function getTask(taskArr: createTask[]){
     const add = document.querySelector('.add')!
     const add2 = document.querySelector('.add2')!
+    const addTask = <HTMLButtonElement> document.querySelector('.add-task')!
     
     const nameTask = document.createElement('div')
     nameTask.classList.add('name-task')
@@ -51,20 +52,36 @@ export default function getTask(taskArr: createTask[]){
     const currentProject = <HTMLElement> document.querySelector('.project-page-label')
 
     addIt.addEventListener('click', function(){
-        if(currentProject.textContent !== "All To Do's"){
-            if(typeof(currentProject.textContent) === 'string'){
-                taskArr.push(new createTask(inputName.value, date.value, currentProject.textContent))
+        if(inputName.value !== ''){
+            addIt.disabled = true;
+            if(currentProject.textContent !== "All To Do's"){
+                if(typeof(currentProject.textContent) === 'string'){
+                    taskArr.push(new createTask(inputName.value, date.value, currentProject.textContent))
+                    inputName.value = ''
+                    date.value = ''
+                    appendTask();
+                }
+            }
+            else{
+                taskArr.push(new createTask(inputName.value, date.value, ''))
                 inputName.value = ''
                 date.value = ''
                 appendTask();
             }
+            addIt.disabled = false;
+            setStorageAll(taskArr)
         }
         else{
-            taskArr.push(new createTask(inputName.value, date.value, ''))
-            inputName.value = ''
-            date.value = ''
-            appendTask();
+            inputName.style.borderColor = 'Red'
+            nameLabel.textContent += ": required"
         }
-        setStorageAll(taskArr)
+        })
+
+
+    cancelIt.addEventListener('click', function(){
+        add.innerHTML = ''
+        add2.innerHTML = ''
+        addTask.disabled = false;
     })
+
 }
