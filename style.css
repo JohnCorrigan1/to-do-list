@@ -12,7 +12,7 @@ body{
 .content{
     display: grid;
     grid-template-rows: 1fr 10fr;
-    grid-template-columns: 8em 6fr;
+    grid-template-columns: 13em 6fr;
     height: 100%;
     width: 100%;
 }
@@ -24,6 +24,7 @@ body{
     background-color: #212121;
     grid-column: 2/3;
     width: 100%;
+    box-shadow: 5px 5px 5px -2px #6D9886;
 }
 
 .title{
@@ -57,9 +58,13 @@ body{
     background-color: #D9CAB3;
 }
 
+.projects-container{
+    padding: 10px;
+}
+
 .sidebar{
     position: fixed;
-    width: 8em;
+    width: 13em;
     grid-row: 2/3;
     grid-column: 1/2;
     display: flex;
@@ -68,6 +73,7 @@ body{
     padding: 10px;
     background-color: darkgray;
     height: 100%;
+    box-shadow: 5px 5px 5px -2px #212121;
 }
 
 .all-tasks:hover{
@@ -79,7 +85,7 @@ body{
     width: 125px;
 }
 
-.add-project{
+.add-project{ 
     margin-right: auto;
     margin-left: auto;
     background-color: #6D9886;
@@ -106,8 +112,9 @@ body{
 }
 
 .project-page-label{
-    color:#6D9886;
-    text-shadow: 2px 2px #212121;
+    color:#212121;
+
+    text-shadow: 2px 1px #6D9886;
     font-size: xx-large;
     font-weight: 700;
 }
@@ -154,18 +161,21 @@ body{
 
 .add-it{
     padding: 5px;
-    border-radius: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
     min-width: 5rem;
+    box-shadow: 5px 5px 5px -2px #212121;
+    
+}
+
+.add-it:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px 5px -2px #6D9886;
+    color:#6D9886;
 }
 
 label{
     font-weight: 700;
-}
-
-.cancel-it{
-    padding: 5px;
-    border-radius: 10px;
-    min-width: 5rem;
 }
 
 .add3 {
@@ -218,7 +228,13 @@ input:active{
     padding: 10px;
     color:#F6F6F6;
     background-color: #6D9886;
+    box-shadow: 5px 5px 5px -2px #212121;
 }
+
+/* .item:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+} */
 
 .done {
     height: 30px;
@@ -252,7 +268,7 @@ input:active{
     }
 }
 
-@media (max-width: 700px){
+@media (max-width: 900px){
 
     .content{
         display: flex;
