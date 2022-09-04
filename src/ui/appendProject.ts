@@ -1,13 +1,8 @@
-import Project from "../functions/newProject"
-import { projectList } from ".."
-import renderProjectPage from "./renderProject"
-import appendTask from "./appendTask"
-import doThis from "../functions/createTask"
+import { setStorageProjects } from "../functions/localStorage"
+import renderProjectList from "./renderProjectList"
 
-export default function createProject(){
-
-    const toDosDiv = document.querySelector('.tasks')!
-    const projectHeader = document.querySelector('.project-header')!
+export default function createProject(projectList: string[]){
+        
     const newProjectButton = <HTMLButtonElement> document.querySelector('.add-project')
 
     const projectNameInput = <HTMLInputElement> document.createElement('input')!
@@ -30,27 +25,19 @@ export default function createProject(){
     const add4 = document.querySelector('.add4')!
 
     add4.appendChild(addIt)
-    add4.appendChild(cancelIt)
-
-
+    add4.appendChild(cancelIt) 
+    
     addIt.addEventListener('click', function(){
-            addIt.disabled = true
-            const newProject = document.createElement('h3')
-            newProject.classList.add('project-list')
-            newProject.textContent = projectNameInput.value
-            const project = new Project(projectNameInput.value, [])
-            projectList.push(project)
-            projectHeader.appendChild(newProject)
+        addIt.disabled = true
 
-            add3.innerHTML = ''
-            add4.innerHTML = ''
-            newProjectButton.disabled = false
+        projectList.push(projectNameInput.value)
+        console.log(projectList)
+        setStorageProjects(projectList)
+        renderProjectList(projectList);
 
-            newProject.addEventListener('click', function(){
-                    toDosDiv.innerHTML = ''
-                    appendTask(project.tasks)
-                    renderProjectPage(project)
-            })
+        add3.innerHTML = ''
+        add4.innerHTML = ''
+        newProjectButton.disabled = false
     })
 
     cancelIt.addEventListener('click', function(){
@@ -58,8 +45,4 @@ export default function createProject(){
             add4.innerHTML = ''
             newProjectButton.disabled = false
     })
-
-    
-    
-    
 }

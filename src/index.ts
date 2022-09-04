@@ -1,18 +1,32 @@
-import _, { head } from 'lodash';
 import getTask from './functions/getTask'
-import doThis from './functions/createTask';
 import createProject from './ui/appendProject';
-import Project from './functions/newProject';
 import appendTask from './ui/appendTask';
-// import { check, trash } from './ui/images'
-import removeTask from './functions/removeTask';
+import createTask from './functions/createTask';
+import { getStorageAll, getStorageProjects } from './functions/localStorage';
+import renderProjectList from './ui/renderProjectList';
 
-let allTasks: doThis[] = []
-let projectList: Project[] = [];
+let projectList: string[];
+let taskArr: createTask[];
 
-// localStorage.setItem("myLocalStorage")
+if(localStorage.getItem("tasks") === null){
+    taskArr = [];
+}
 
-const trash = <HTMLElement> document.querySelector('.delete-task')
+else{
+    taskArr = getStorageAll();
+}
+
+if(localStorage.getItem("projectList") === null){
+    projectList = [];
+}
+
+else {
+    projectList = getStorageProjects();
+}
+   
+renderProjectList(projectList);
+appendTask();
+
 const renderAllTasks = document.querySelector('.all-tasks')!
 const addTask = <HTMLButtonElement> document.getElementById('add-task')!;
 const newProjectButton =  <HTMLButtonElement> document.querySelector('.add-project')!
@@ -24,42 +38,19 @@ let isActive: boolean = false
 
 
 addTask.addEventListener('click', function(){
-    getTask();
+    getTask(taskArr);
     addTask.disabled = true;
 })
 
 renderAllTasks.addEventListener('click', function(){
     currentProject.textContent = "All To Do's"
-    appendTask(allTasks)
+    appendTask()
 })
 
 newProjectButton.addEventListener('click', function(){
-    createProject();
+    createProject(projectList);
     newProjectButton.disabled = true;
 })
-
-
-if(trash){
-trash.addEventListener('click', function(){
-    console.log(this.parentElement?.firstChild?.nextSibling?.textContent)
-    const taskClicked = this.parentElement?.firstChild?.nextSibling?.textContent;
-    const taskDiv = this.parentElement
-    if(taskClicked && taskDiv){
-    removeTask(taskClicked, taskDiv);
-    console.log(allTasks)
-    }
-})
-}
-
-//removes abiility for things
-// check.addEventListener('click', function(){
-//     const headerDone = this.parentElement?.firstChild?.nextSibling as HTMLElement;
-//     if(headerDone){
-//         headerDone.style.setProperty('text-decoration', 'line-through');
-//     }
-// })
-
-
 
 hamburger.addEventListener('click', function(){
     if(!isActive){
@@ -81,4 +72,4 @@ addEventListener('resize', function(){
     }
 });
 
-export { allTasks , projectList}
+export { taskArr, projectList }

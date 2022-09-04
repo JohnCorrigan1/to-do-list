@@ -1,11 +1,9 @@
-import Project from "../functions/newProject";
-
-export default function renderProjectPage(project: Project){
+export default function renderProjectPage(projectName: string){
     const projectPageDiv = document.querySelector('.project-page')!
     
     const projectPageLabel = document.querySelector(".project-page-label")!
     projectPageLabel.innerHTML = ''
-    projectPageLabel.textContent = project.name;
+    projectPageLabel.textContent = projectName;
 
     projectPageDiv.appendChild(projectPageLabel)
 
