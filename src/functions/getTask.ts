@@ -19,7 +19,7 @@ export default function getTask(taskArr: createTask[]){
 
     const cancelIt = document.createElement('button')
     cancelIt.type = 'submit'
-    cancelIt.classList.add('cancel-it')
+    cancelIt.classList.add('add-it')
     cancelIt.textContent = "Cancel"
 
     const nameLabel = document.createElement('label')

@@ -17,10 +17,12 @@ export default function createProject(projectList: string[]){
     add3.appendChild(projectNameInput)
 
     const addIt = <HTMLButtonElement> document.createElement('button')
-    addIt.textContent = "Add It"
+    addIt.classList.add('add-it')
+    addIt.textContent = "Add"
 
     const cancelIt = <HTMLButtonElement> document.createElement('button')
-    cancelIt.textContent = "Cancel It"
+    cancelIt.classList.add("add-it")
+    cancelIt.textContent = "Cancel"
 
     const add4 = document.querySelector('.add4')!
 

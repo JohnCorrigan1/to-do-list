@@ -33,7 +33,7 @@ const newProjectButton =  <HTMLButtonElement> document.querySelector('.add-proje
 const hamburger = document.querySelector('.hamburger')!
 const sidebar = <HTMLDivElement> document.querySelector('.sidebar')!
 const currentProject = document.querySelector('.project-page-label')!
-let windowSize = window.matchMedia("(min-width: 700px)")
+let windowSize = window.matchMedia("(min-width: 900px)")
 let isActive: boolean = false
 
 
