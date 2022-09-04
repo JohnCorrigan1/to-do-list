@@ -28,6 +28,7 @@ body{
 
 .title{
     margin-left: 25px;
+    text-shadow: 2px 2px #6D9886;
 }
 
 .hamburger{
@@ -106,7 +107,8 @@ body{
 
 .project-page-label{
     color:#6D9886;
-    font-size: x-large;
+    text-shadow: 2px 2px #212121;
+    font-size: xx-large;
     font-weight: 700;
 }
 
@@ -146,8 +148,24 @@ body{
 }
 
 .add2{
-    margin-right: auto;
-    margin-left: auto;
+    display: flex;
+    margin: 5px auto 0 auto;
+}
+
+.add-it{
+    padding: 5px;
+    border-radius: 10px;
+    min-width: 5rem;
+}
+
+label{
+    font-weight: 700;
+}
+
+.cancel-it{
+    padding: 5px;
+    border-radius: 10px;
+    min-width: 5rem;
 }
 
 .add3 {
@@ -161,10 +179,22 @@ body{
 
 input{
     display: flex;
+    border-radius: 10px;
+    border-color:#6D9886;
+    border-width: 2px;
+    border-style: ridge;
+    background-color: lightgray;
+    box-shadow: 5px 5px 5px -2px #212121;
+}
+
+input:active{
+    border-color:#6D9886;
+    border-width: 3px;
+    box-shadow: 5px 5px 5px -2px #212121;
 }
 
 .add-task{
-    margin: 10px auto 0 auto;
+    margin: 0 auto 0 auto;
     max-width: 150px;
     background-color: darkgray;
     padding: 10px;
