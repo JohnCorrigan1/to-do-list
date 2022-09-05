@@ -1,5 +1,6 @@
 import Trash from './../imgs/delete.png'
 import Check from './../imgs/check.png'
+import Git from './../imgs/GitHub-Mark-32px.png'
 
 const trash = new Image();
 trash.src = Trash;
@@ -9,4 +10,10 @@ const check = new Image();
 check.src = Check;
 check.classList.add('task-done')
 
-export { Trash, Check, trash, check}
+const footerImg = document.querySelector('a')
+const git = new Image()
+git.src = Git
+git.classList.add('github-logo')
+footerImg?.appendChild(git)
+
+export { Trash, Check }

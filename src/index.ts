@@ -27,6 +27,8 @@ else {
 renderProjectList(projectList);
 appendTask();
 
+
+
 const renderAllTasks = document.querySelector('.all-tasks')!
 const addTask = <HTMLButtonElement> document.getElementById('add-task')!;
 const newProjectButton =  <HTMLButtonElement> document.querySelector('.add-project')!
