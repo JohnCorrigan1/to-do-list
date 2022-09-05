@@ -1,12 +1,11 @@
-export default class createTask{
+export default class createTask {
+  name: string;
+  date: string;
+  projectGroup: string;
 
-    name: string;
-    date: string;
-    projectGroup: string;
-
-    constructor(name: string, date: string, projectGroup: string){
-        this.name = name;
-        this.date = date;
-        this.projectGroup = projectGroup;
-    }
+  constructor(name: string, date: string, projectGroup: string) {
+    this.name = name;
+    this.date = date;
+    this.projectGroup = projectGroup;
+  }
 }

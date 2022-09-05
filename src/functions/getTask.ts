@@ -1,87 +1,90 @@
-import createTask from './createTask'
-import appendTask from '../ui/appendTask'
-import { setStorageAll } from './localStorage'
+import createTask from "./createTask";
+import appendTask from "../ui/appendTask";
+import { setStorageAll } from "./localStorage";
 
-export default function getTask(taskArr: createTask[]){
-    const add = document.querySelector('.add')!
-    const add2 = document.querySelector('.add2')!
-    const addTask = <HTMLButtonElement> document.querySelector('.add-task')!
-    
-    const nameTask = document.createElement('div')
-    nameTask.classList.add('name-task')
+export default function getTask(taskArr: createTask[]) {
+  const add = document.querySelector(".add")!;
+  const add2 = document.querySelector(".add2")!;
+  const addTask = <HTMLButtonElement>document.querySelector(".add-task")!;
 
-    const taskDate = document.createElement('div')
-    taskDate.classList.add('task-date')
+  const nameTask = document.createElement("div");
+  nameTask.classList.add("name-task");
 
-    const addIt = <HTMLButtonElement> document.createElement('button')
-    addIt.type = 'submit'
-    addIt.classList.add('add-it')
-    addIt.textContent = "Add it"
+  const taskDate = document.createElement("div");
+  taskDate.classList.add("task-date");
 
-    const cancelIt = document.createElement('button')
-    cancelIt.type = 'submit'
-    cancelIt.classList.add('add-it')
-    cancelIt.textContent = "Cancel"
+  const addIt = <HTMLButtonElement>document.createElement("button");
+  addIt.type = "submit";
+  addIt.classList.add("add-it");
+  addIt.textContent = "Add it";
 
-    const nameLabel = document.createElement('label')
-    nameLabel.classList.add('name-label')
-    nameLabel.textContent = "Task Name"
+  const cancelIt = document.createElement("button");
+  cancelIt.type = "submit";
+  cancelIt.classList.add("add-it");
+  cancelIt.textContent = "Cancel";
 
-    const inputName = <HTMLInputElement> document.createElement('input')
-    inputName.classList.add('input-name')
+  const nameLabel = document.createElement("label");
+  nameLabel.classList.add("name-label");
+  nameLabel.textContent = "Task Name";
 
-    const date = <HTMLInputElement> document.createElement('input')
-    date.type = 'date'
-    date.classList.add('due-date')
+  const inputName = <HTMLInputElement>document.createElement("input");
+  inputName.classList.add("input-name");
 
-    const dateLabel = document.createElement('label')
-    dateLabel.textContent = "Due Date"
+  const date = <HTMLInputElement>document.createElement("input");
+  date.type = "date";
+  date.classList.add("due-date");
 
-    nameTask.appendChild(nameLabel)
-    nameTask.appendChild(inputName)
+  const dateLabel = document.createElement("label");
+  dateLabel.textContent = "Due Date";
 
-    taskDate.appendChild(dateLabel)
-    taskDate.appendChild(date)
+  nameTask.appendChild(nameLabel);
+  nameTask.appendChild(inputName);
 
-    add.appendChild(nameTask)
-    add.appendChild(taskDate)
-    add2.appendChild(addIt)
-    add2.appendChild(cancelIt)
+  taskDate.appendChild(dateLabel);
+  taskDate.appendChild(date);
 
+  add.appendChild(nameTask);
+  add.appendChild(taskDate);
+  add2.appendChild(addIt);
+  add2.appendChild(cancelIt);
 
-    const currentProject = <HTMLElement> document.querySelector('.project-page-label')
+  const currentProject = <HTMLElement>(
+    document.querySelector(".project-page-label")
+  );
 
-    addIt.addEventListener('click', function(){
-        if(inputName.value !== ''){
-            addIt.disabled = true;
-            if(currentProject.textContent !== "All To Do's"){
-                if(typeof(currentProject.textContent) === 'string'){
-                    taskArr.push(new createTask(inputName.value, date.value, currentProject.textContent))
-                    inputName.value = ''
-                    date.value = ''
-                    appendTask();
-                }
-            }
-            else{
-                taskArr.push(new createTask(inputName.value, date.value, ''))
-                inputName.value = ''
-                date.value = ''
-                appendTask();
-            }
-            addIt.disabled = false;
-            setStorageAll(taskArr)
+  addIt.addEventListener("click", function () {
+    if (inputName.value !== "") {
+      addIt.disabled = true;
+      if (currentProject.textContent !== "All To Do's") {
+        if (typeof currentProject.textContent === "string") {
+          taskArr.push(
+            new createTask(
+              inputName.value,
+              date.value,
+              currentProject.textContent
+            )
+          );
+          inputName.value = "";
+          date.value = "";
+          appendTask();
         }
-        else{
-            inputName.style.borderColor = 'Red'
-            nameLabel.textContent += ": required"
-        }
-        })
+      } else {
+        taskArr.push(new createTask(inputName.value, date.value, ""));
+        inputName.value = "";
+        date.value = "";
+        appendTask();
+      }
+      addIt.disabled = false;
+      setStorageAll(taskArr);
+    } else {
+      inputName.style.borderColor = "Red";
+      nameLabel.textContent += ": required";
+    }
+  });
 
-
-    cancelIt.addEventListener('click', function(){
-        add.innerHTML = ''
-        add2.innerHTML = ''
-        addTask.disabled = false;
-    })
-
+  cancelIt.addEventListener("click", function () {
+    add.innerHTML = "";
+    add2.innerHTML = "";
+    addTask.disabled = false;
+  });
 }
